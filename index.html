@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Baghyshree - Menu</title>
+    <title>Hotel Baghyshree - Menu & Dashboard</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -22,142 +22,195 @@
         .card-bg {
             background-image: linear-gradient(135deg, #fef2f2 0%, #fffbeb 100%);
         }
+        .order-card-bg {
+            background-image: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
     </style>
 </head>
 <body class="bg-amber-50">
     <div class="min-h-screen flex flex-col items-center">
-        <!-- Header Section -->
-        <header class="w-full text-center py-8 bg-amber-700 text-white shadow-xl">
-            <h1 class="text-4xl md:text-6xl font-extrabold stylish-heading tracking-tight">Hotel Baghyshree</h1>
-            <p class="mt-2 text-xl md:text-2xl font-light">Our Special Maharashtrian Thalis</p>
+        <!-- Header Section with Navigation -->
+        <header class="w-full text-center py-8 bg-amber-700 text-white shadow-xl px-4 md:px-8">
+            <nav class="flex justify-between items-center max-w-7xl mx-auto flex-wrap">
+                <h1 class="text-4xl md:text-5xl font-extrabold stylish-heading tracking-tight mb-4 md:mb-0">Hotel Baghyshree</h1>
+                <div class="flex items-center space-x-4">
+                    <button id="view-menu-btn" class="bg-amber-800 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-amber-900 transition-colors duration-300">
+                        View Menu
+                    </button>
+                    <button id="view-dashboard-btn" class="bg-amber-800 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-amber-900 transition-colors duration-300">
+                        View Live Orders
+                    </button>
+                </div>
+            </nav>
         </header>
 
         <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-20">
-            <div class="bg-white p-6 md:p-12 rounded-3xl shadow-xl card-bg">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Thali Menu</h2>
-                
-                <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Special Non-Veg Thali -->
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="650">
-                        <img src="https://placehold.co/400x300/e0e0e0/555555?text=Special+Non-Veg+Thali" alt="Special Non-Veg Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Special Non-Veg Thali</h3>
-                        <p class="text-gray-600">A grand platter featuring Crab, Mutton, Fish, and Chicken curries, served with bhakri, rice, and a sweet dish.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹650</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+
+            <!-- Menu Section -->
+            <section id="menu-section" class="w-full">
+                <div class="bg-white p-6 md:p-12 rounded-3xl shadow-xl card-bg">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Thali Menu</h2>
+                    <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Special Non-Veg Thali -->
+                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="650" data-name="Special Non-Veg Thali">
+                            <img src="https://placehold.co/400x300/e0e0e0/555555?text=Special+Non-Veg+Thali" alt="Special Non-Veg Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                            <h3 class="text-2xl font-bold text-gray-900">Special Non-Veg Thali</h3>
+                            <p class="text-gray-600">A grand platter featuring Crab, Mutton, Fish, and Chicken curries, served with bhakri, rice, and a sweet dish.</p>
+                            <p class="text-xl text-gray-700 font-semibold">₹650</p>
+                            <div class="flex items-center space-x-4">
+                                <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                                <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                                <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                            </div>
                         </div>
+                        
+                        <!-- Special Veg Thali -->
+                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="350" data-name="Special Veg Thali">
+                            <img src="https://placehold.co/400x300/fcc2b4/824317?text=Special+Veg+Thali" alt="Special Veg Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                            <h3 class="text-2xl font-bold text-gray-900">Special Veg Thali</h3>
+                            <p class="text-gray-600">A wholesome vegetarian platter with paneer sabzi, mixed veg curry, dal, two types of bread, rice, and a sweet dish.</p>
+                            <p class="text-xl text-gray-700 font-semibold">₹350</p>
+                            <div class="flex items-center space-x-4">
+                                <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                                <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                                <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Normal Chicken Thali -->
+                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="290" data-name="Normal Chicken Thali">
+                            <img src="https://placehold.co/400x300/fcc2b4/824317?text=Chicken+Thali" alt="Normal Chicken Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                            <h3 class="text-2xl font-bold text-gray-900">Normal Chicken Thali</h3>
+                            <p class="text-gray-600">A complete meal featuring a rich chicken curry (rassa), dry chicken (sukka), bhakri, and rice.</p>
+                            <p class="text-xl text-gray-700 font-semibold">₹290</p>
+                            <div class="flex items-center space-x-4">
+                                <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                                <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                                <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Mutton Thali -->
+                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="450" data-name="Mutton Thali">
+                            <img src="https://placehold.co/400x300/e0e0e0/555555?text=Mutton+Thali" alt="Mutton Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                            <h3 class="text-2xl font-bold text-gray-900">Mutton Thali</h3>
+                            <p class="text-gray-600">Features tender mutton curry (rassa), mutton sukka, bhakri or chapati, and steamed rice.</p>
+                            <p class="text-xl text-gray-700 font-semibold">₹450</p>
+                            <div class="flex items-center space-x-4">
+                                <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                                <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                                <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Fish Thali -->
+                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="390" data-name="Fish Thali">
+                            <img src="https://placehold.co/400x300/fcc2b4/824317?text=Fish+Thali" alt="Fish Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                            <h3 class="text-2xl font-bold text-gray-900">Fish Thali</h3>
+                            <p class="text-gray-600">A classic coastal platter with fish fry, fish curry, rice, bhakri, and a refreshing solkadhi.</p>
+                            <p class="text-xl text-gray-700 font-semibold">₹390</p>
+                            <div class="flex items-center space-x-4">
+                                <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                                <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                                <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Tambda Rassa Thali -->
+                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="470" data-name="Tambda Rassa Thali">
+                            <img src="https://placehold.co/400x300/e0e0e0/555555?text=Tambda+Rassa+Thali" alt="Tambda Rassa Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                            <h3 class="text-2xl font-bold text-gray-900">Tambda Rassa Thali</h3>
+                            <p class="text-gray-600">A Kolhapuri special featuring a fiery red and spicy mutton curry, served with bhakri or rice.</p>
+                            <p class="text-xl text-gray-700 font-semibold">₹470</p>
+                            <div class="flex items-center space-x-4">
+                                <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                                <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                                <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Saoji Chicken Thali -->
+                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="310" data-name="Saoji Chicken Thali">
+                            <img src="https://placehold.co/400x300/fcc2b4/824317?text=Saoji+Chicken+Thali" alt="Saoji Chicken Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                            <h3 class="text-2xl font-bold text-gray-900">Saoji Chicken Thali</h3>
+                            <p class="text-gray-600">A Nagpur-style thali with a spicy chicken curry, prepared with a unique Saoji masala, served with bhakri and rice.</p>
+                            <p class="text-xl text-gray-700 font-semibold">₹310</p>
+                            <div class="flex items-center space-x-4">
+                                <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                                <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                                <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Butter Chicken Thali -->
+                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="330" data-name="Butter Chicken Thali">
+                            <img src="https://placehold.co/400x300/e0e0e0/555555?text=Butter+Chicken+Thali" alt="Butter Chicken Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                            <h3 class="text-2xl font-bold text-gray-900">Butter Chicken Thali</h3>
+                            <p class="text-gray-600">A classic North Indian thali with tender chicken pieces in a rich, creamy, and mildly spicy tomato gravy, served with butter naan and rice.</p>
+                            <p class="text-xl text-gray-700 font-semibold">₹330</p>
+                            <div class="flex items-center space-x-4">
+                                <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                                <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                                <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                            </div>
+                        </div>
+
                     </div>
                     
-                    <!-- Special Veg Thali -->
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="350">
-                        <img src="https://placehold.co/400x300/fcc2b4/824317?text=Special+Veg+Thali" alt="Special Veg Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Special Veg Thali</h3>
-                        <p class="text-gray-600">A wholesome vegetarian platter with paneer sabzi, mixed veg curry, dal, two types of bread, rice, and a sweet dish.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹350</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                    <!-- Customer Name and Order Summary Section -->
+                    <div class="mt-12">
+                        <div class="mb-6">
+                            <label for="customer-name" class="block text-xl font-semibold text-gray-800 mb-2">Your Name:</label>
+                            <input type="text" id="customer-name" placeholder="Enter your name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-lg">
+                        </div>
+
+                        <div id="order-summary-container" class="mt-8 p-6 bg-white rounded-xl shadow" style="display:none;">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Your Order</h3>
+                            <div id="order-summary-list" class="space-y-3">
+                                <!-- Order items will be dynamically added here -->
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Normal Chicken Thali -->
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="290">
-                        <img src="https://placehold.co/400x300/fcc2b4/824317?text=Chicken+Thali" alt="Normal Chicken Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Normal Chicken Thali</h3>
-                        <p class="text-gray-600">A complete meal featuring a rich chicken curry (rassa), dry chicken (sukka), bhakri, and rice.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹290</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Mutton Thali -->
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="450">
-                        <img src="https://placehold.co/400x300/e0e0e0/555555?text=Mutton+Thali" alt="Mutton Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Mutton Thali</h3>
-                        <p class="text-gray-600">Features tender mutton curry (rassa), mutton sukka, bhakri or chapati, and steamed rice.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹450</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                    <div class="mt-12 text-center">
+                        <h3 class="text-3xl font-extrabold text-gray-800">Bill Summary</h3>
+                        <div class="mt-4 text-xl font-semibold space-y-2">
+                            <p>Subtotal: <span id="subtotal" class="text-gray-600">₹0</span></p>
+                            <p>GST (5%): <span id="gst-amount" class="text-gray-600">₹0</span></p>
+                            <p class="border-t pt-2 border-gray-300">Total Bill: <span id="total-bill" class="text-amber-700 font-bold">₹0</span></p>
                         </div>
                     </div>
 
-                    <!-- Fish Thali -->
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="390">
-                        <img src="https://placehold.co/400x300/fcc2b4/824317?text=Fish+Thali" alt="Fish Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Fish Thali</h3>
-                        <p class="text-gray-600">A classic coastal platter with fish fry, fish curry, rice, bhakri, and a refreshing solkadhi.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹390</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
+                    <div class="flex justify-center mt-8">
+                        <button id="place-order-btn" class="bg-green-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-green-500 text-xl">
+                            Place Order
+                        </button>
                     </div>
-                    
-                    <!-- Tambda Rassa Thali -->
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="470">
-                        <img src="https://placehold.co/400x300/e0e0e0/555555?text=Tambda+Rassa+Thali" alt="Tambda Rassa Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Tambda Rassa Thali</h3>
-                        <p class="text-gray-600">A Kolhapuri special featuring a fiery red and spicy mutton curry, served with bhakri or rice.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹470</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
-
-                    <!-- Saoji Chicken Thali -->
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="310">
-                        <img src="https://placehold.co/400x300/fcc2b4/824317?text=Saoji+Chicken+Thali" alt="Saoji Chicken Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Saoji Chicken Thali</h3>
-                        <p class="text-gray-600">A Nagpur-style thali with a spicy chicken curry, prepared with a unique Saoji masala, served with bhakri and rice.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹310</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Butter Chicken Thali -->
-                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="330">
-                        <img src="https://placehold.co/400x300/e0e0e0/555555?text=Butter+Chicken+Thali" alt="Butter Chicken Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Butter Chicken Thali</h3>
-                        <p class="text-gray-600">A classic North Indian thali with tender chicken pieces in a rich, creamy, and mildly spicy tomato gravy, served with butter naan and rice.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹330</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
-
                 </div>
-
-                <div class="mt-12 text-center">
-                    <h3 class="text-3xl font-extrabold text-gray-800">Bill Summary</h3>
-                    <div class="mt-4 text-xl font-semibold space-y-2">
-                        <p>Subtotal: <span id="subtotal" class="text-gray-600">₹0</span></p>
-                        <p>GST (5%): <span id="gst-amount" class="text-gray-600">₹0</span></p>
-                        <p class="border-t pt-2 border-gray-300">Total Bill: <span id="total-bill" class="text-amber-700 font-bold">₹0</span></p>
+            </section>
+            
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="w-full hidden">
+                <div class="bg-white p-6 md:p-12 rounded-3xl shadow-xl order-card-bg">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Live Orders Dashboard</h2>
+                    <div class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0">
+                        <!-- Pending Orders -->
+                        <div class="w-full md:w-1/2">
+                            <h3 class="text-2xl font-bold text-gray-700 mb-4 text-center border-b-2 border-amber-500 pb-2">Pending Orders</h3>
+                            <div id="pending-orders-container" class="space-y-6">
+                                <p id="no-pending-orders" class="text-center text-gray-500">No pending orders.</p>
+                            </div>
+                        </div>
+                        <!-- Completed Orders -->
+                        <div class="w-full md:w-1/2">
+                            <h3 class="text-2xl font-bold text-gray-700 mb-4 text-center border-b-2 border-green-500 pb-2">Completed Orders</h3>
+                            <div id="completed-orders-container" class="space-y-6">
+                                <p id="no-completed-orders" class="text-center text-gray-500">No completed orders yet.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="flex justify-center mt-8">
-                    <button id="place-order-btn" class="bg-green-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-green-500 text-xl">
-                        Place Order
-                    </button>
-                </div>
-            </div>
+            </section>
 
             <!-- Modal for "Thank You" message -->
             <div id="thank-you-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4" style="display:none;">
@@ -168,11 +221,17 @@
                         </svg>
                     </div>
                     <h3 class="text-3xl font-extrabold text-gray-900 mb-2">Thank You!</h3>
-                    <p id="final-bill-message" class="text-lg text-gray-700 font-semibold mb-4">Your total bill is ₹0.</p>
-                    <p class="text-gray-600">Our waiter will be with you shortly to confirm your order.</p>
+                    <p id="modal-name-text" class="text-xl text-gray-700 font-semibold mb-2">Hello,!</p>
+                    <div class="text-left mt-4">
+                        <h4 class="text-lg font-bold">Your Order Summary:</h4>
+                        <ul id="modal-order-list" class="list-disc list-inside space-y-1 mt-2 text-gray-600"></ul>
+                    </div>
+                    <p id="final-bill-message" class="text-lg text-gray-700 font-semibold mt-4">Your total bill is ₹0.</p>
+                    <p class="text-gray-600 mt-2">Our waiter will be with you shortly to confirm your order.</p>
                     <button id="close-modal-btn" class="mt-6 bg-amber-600 text-white font-bold py-2 px-6 rounded-full hover:bg-amber-700 transition-colors duration-300">Close</button>
                 </div>
             </div>
+            
         </main>
         
         <!-- Footer -->
@@ -181,66 +240,310 @@
             <p class="text-sm">Last created by Sudhanshu Dambare</p>
         </footer>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuItems = document.querySelectorAll('#menu-items > div');
-            const subtotalSpan = document.getElementById('subtotal');
-            const gstAmountSpan = document.getElementById('gst-amount');
-            const totalBillSpan = document.getElementById('total-bill');
-            const placeOrderBtn = document.getElementById('place-order-btn');
-            const thankYouModal = document.getElementById('thank-you-modal');
-            const finalBillMessage = document.getElementById('final-bill-message');
-            const closeModalBtn = document.getElementById('close-modal-btn');
-            const GST_RATE = 0.05; // 5% GST
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, doc, setDoc, collection, onSnapshot, query } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-            const calculateTotal = () => {
-                let subtotal = 0;
-                menuItems.forEach(item => {
-                    const price = parseFloat(item.dataset.price);
-                    const quantity = parseInt(item.querySelector('.quantity-display').textContent);
-                    subtotal += price * quantity;
+        // Firebase configuration and initialization
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        let userId = '';
+        const publicCollectionPath = `artifacts/${appId}/public/data/`;
+
+        // UI element references
+        const menuSection = document.getElementById('menu-section');
+        const dashboardSection = document.getElementById('dashboard-section');
+        const viewMenuBtn = document.getElementById('view-menu-btn');
+        const viewDashboardBtn = document.getElementById('view-dashboard-btn');
+        const menuItems = document.querySelectorAll('#menu-items > div');
+        const subtotalSpan = document.getElementById('subtotal');
+        const gstAmountSpan = document.getElementById('gst-amount');
+        const totalBillSpan = document.getElementById('total-bill');
+        const placeOrderBtn = document.getElementById('place-order-btn');
+        const thankYouModal = document.getElementById('thank-you-modal');
+        const finalBillMessage = document.getElementById('final-bill-message');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const customerNameInput = document.getElementById('customer-name');
+        const orderSummaryContainer = document.getElementById('order-summary-container');
+        const orderSummaryList = document.getElementById('order-summary-list');
+        const modalNameText = document.getElementById('modal-name-text');
+        const modalOrderList = document.getElementById('modal-order-list');
+        const pendingOrdersContainer = document.getElementById('pending-orders-container');
+        const completedOrdersContainer = document.getElementById('completed-orders-container');
+        const noPendingOrders = document.getElementById('no-pending-orders');
+        const noCompletedOrders = document.getElementById('no-completed-orders');
+
+        const GST_RATE = 0.05; // 5% GST
+
+        // Function to toggle between menu and dashboard views
+        const toggleView = (viewId) => {
+            menuSection.classList.add('hidden');
+            dashboardSection.classList.add('hidden');
+            document.getElementById(viewId).classList.remove('hidden');
+        };
+
+        // Function to render orders on the dashboard
+        const renderOrders = (orders) => {
+            const pendingOrders = orders.filter(order => order.status === 'pending');
+            const completedOrders = orders.filter(order => order.status === 'completed');
+
+            // Render pending orders
+            pendingOrdersContainer.innerHTML = '';
+            if (pendingOrders.length === 0) {
+                pendingOrdersContainer.appendChild(noPendingOrders);
+                noPendingOrders.classList.remove('hidden');
+            } else {
+                noPendingOrders.classList.add('hidden');
+                pendingOrders.forEach(order => {
+                    const orderCard = document.createElement('div');
+                    orderCard.className = 'bg-white p-6 rounded-2xl shadow-lg border border-amber-300';
+                    const orderDate = new Date(order.timestamp).toLocaleString();
+                    const itemsHtml = order.items.map(item => `
+                        <li class="flex justify-between items-center text-gray-700 text-sm">
+                            <span class="font-semibold">${item.name}</span>
+                            <span class="text-gray-500">x${item.quantity}</span>
+                        </li>
+                    `).join('');
+                    orderCard.innerHTML = `
+                        <h4 class="text-xl font-bold mb-2 text-gray-800">${order.customerName}</h4>
+                        <p class="text-sm text-gray-500 mb-3">Order placed at ${orderDate}</p>
+                        <ul class="list-disc list-inside space-y-1 mb-4">
+                            ${itemsHtml}
+                        </ul>
+                        <p class="text-lg font-bold text-gray-800">Total: ₹${order.totalBill.toFixed(2)}</p>
+                        <button class="mt-4 w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-full hover:bg-green-600 transition-colors duration-300" data-order-id="${order.id}">
+                            Mark as Completed
+                        </button>
+                    `;
+                    pendingOrdersContainer.appendChild(orderCard);
+                    orderCard.querySelector('button').addEventListener('click', () => updateOrderStatus(order.id, 'completed'));
                 });
-                const gst = subtotal * GST_RATE;
-                const total = subtotal + gst;
+            }
 
-                subtotalSpan.textContent = `₹${subtotal.toFixed(2)}`;
-                gstAmountSpan.textContent = `₹${gst.toFixed(2)}`;
-                totalBillSpan.textContent = `₹${total.toFixed(2)}`;
-            };
+            // Render completed orders
+            completedOrdersContainer.innerHTML = '';
+            if (completedOrders.length === 0) {
+                completedOrdersContainer.appendChild(noCompletedOrders);
+                noCompletedOrders.classList.remove('hidden');
+            } else {
+                noCompletedOrders.classList.add('hidden');
+                completedOrders.forEach(order => {
+                    const orderCard = document.createElement('div');
+                    orderCard.className = 'bg-white p-6 rounded-2xl shadow-lg border border-green-300';
+                    const orderDate = new Date(order.timestamp).toLocaleString();
+                    const itemsHtml = order.items.map(item => `
+                        <li class="flex justify-between items-center text-gray-700 text-sm">
+                            <span class="font-semibold">${item.name}</span>
+                            <span class="text-gray-500">x${item.quantity}</span>
+                        </li>
+                    `).join('');
+                    orderCard.innerHTML = `
+                        <h4 class="text-xl font-bold mb-2 text-gray-800">${order.customerName}</h4>
+                        <p class="text-sm text-gray-500 mb-3">Order completed at ${orderDate}</p>
+                        <ul class="list-disc list-inside space-y-1 mb-4">
+                            ${itemsHtml}
+                        </ul>
+                        <p class="text-lg font-bold text-gray-800">Total: ₹${order.totalBill.toFixed(2)}</p>
+                    `;
+                    completedOrdersContainer.appendChild(orderCard);
+                });
+            }
+        };
 
-            menuItems.forEach(item => {
-                const quantityDisplay = item.querySelector('.quantity-display');
-                const decreaseBtn = item.querySelector('[data-action="decrease"]');
-                const increaseBtn = item.querySelector('[data-action="increase"]');
+        // Function to update order status in Firestore
+        const updateOrderStatus = async (orderId, newStatus) => {
+            const orderRef = doc(db, `${publicCollectionPath}orders`, orderId);
+            try {
+                await setDoc(orderRef, { status: newStatus }, { merge: true });
+                console.log(`Order ${orderId} status updated to ${newStatus}.`);
+            } catch (e) {
+                console.error("Error updating document: ", e);
+            }
+        };
 
-                decreaseBtn.addEventListener('click', () => {
-                    let quantity = parseInt(quantityDisplay.textContent);
-                    if (quantity > 0) {
-                        quantity--;
-                        quantityDisplay.textContent = quantity;
-                        calculateTotal();
+        // Listen for real-time order updates
+        const getOrders = () => {
+            const q = query(collection(db, `${publicCollectionPath}orders`));
+            onSnapshot(q, (snapshot) => {
+                const orders = [];
+                snapshot.forEach(doc => {
+                    orders.push({ id: doc.id, ...doc.data() });
+                });
+                renderOrders(orders);
+            });
+        };
+
+        // Firebase Auth listener
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                userId = user.uid;
+                console.log("Authenticated as user:", userId);
+            } else {
+                console.log("No user signed in. Signing in anonymously...");
+                try {
+                    if (typeof __initial_auth_token !== 'undefined') {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
                     }
-                });
+                } catch (error) {
+                    console.error("Firebase Auth error:", error);
+                }
+            }
+        });
+        
+        const saveOrderToDatabase = async (orderData) => {
+            if (!userId) {
+                console.error("User not authenticated. Cannot save order.");
+                return;
+            }
+            try {
+                const ordersCollectionRef = collection(db, `${publicCollectionPath}orders`);
+                const newOrderRef = doc(ordersCollectionRef);
+                const orderWithStatus = { ...orderData, status: 'pending' };
+                await setDoc(newOrderRef, orderWithStatus);
+                console.log("Order saved to Firestore successfully!");
+            } catch (e) {
+                console.error("Error adding document: ", e);
+            }
+        };
 
-                increaseBtn.addEventListener('click', () => {
-                    let quantity = parseInt(quantityDisplay.textContent);
-                    quantity++;
+        const updateOrderSummary = () => {
+            orderSummaryList.innerHTML = '';
+            let hasItems = false;
+            menuItems.forEach(item => {
+                const quantity = parseInt(item.querySelector('.quantity-display').textContent);
+                if (quantity > 0) {
+                    hasItems = true;
+                    const itemName = item.dataset.name;
+                    const itemPrice = parseFloat(item.dataset.price);
+                    const itemSubtotal = quantity * itemPrice;
+
+                    const listItem = document.createElement('div');
+                    listItem.className = 'flex justify-between items-center';
+                    listItem.innerHTML = `
+                        <p class="text-gray-700">${itemName} (x${quantity})</p>
+                        <p class="text-gray-700">₹${itemSubtotal.toFixed(2)}</p>
+                    `;
+                    orderSummaryList.appendChild(listItem);
+                }
+            });
+
+            orderSummaryContainer.style.display = hasItems ? 'block' : 'none';
+        };
+
+        const calculateTotal = () => {
+            let subtotal = 0;
+            menuItems.forEach(item => {
+                const price = parseFloat(item.dataset.price);
+                const quantity = parseInt(item.querySelector('.quantity-display').textContent);
+                subtotal += price * quantity;
+            });
+            const gst = subtotal * GST_RATE;
+            const total = subtotal + gst;
+
+            subtotalSpan.textContent = `₹${subtotal.toFixed(2)}`;
+            gstAmountSpan.textContent = `₹${gst.toFixed(2)}`;
+            totalBillSpan.textContent = `₹${total.toFixed(2)}`;
+            
+            updateOrderSummary();
+        };
+
+        menuItems.forEach(item => {
+            const quantityDisplay = item.querySelector('.quantity-display');
+            const decreaseBtn = item.querySelector('[data-action="decrease"]');
+            const increaseBtn = item.querySelector('[data-action="increase"]');
+
+            decreaseBtn.addEventListener('click', () => {
+                let quantity = parseInt(quantityDisplay.textContent);
+                if (quantity > 0) {
+                    quantity--;
                     quantityDisplay.textContent = quantity;
                     calculateTotal();
                 }
-                );
             });
 
-            placeOrderBtn.addEventListener('click', () => {
-                const total = totalBillSpan.textContent;
-                finalBillMessage.textContent = `Your total bill is ${total}.`;
-                thankYouModal.style.display = 'flex';
-            });
-
-            closeModalBtn.addEventListener('click', () => {
-                thankYouModal.style.display = 'none';
+            increaseBtn.addEventListener('click', () => {
+                let quantity = parseInt(quantityDisplay.textContent);
+                quantity++;
+                quantityDisplay.textContent = quantity;
+                calculateTotal();
             });
         });
+
+        placeOrderBtn.addEventListener('click', () => {
+            const customerName = customerNameInput.value.trim() || "Anonymous Customer";
+            const subtotal = parseFloat(subtotalSpan.textContent.replace('₹', ''));
+            const gst = parseFloat(gstAmountSpan.textContent.replace('₹', ''));
+            const total = parseFloat(totalBillSpan.textContent.replace('₹', ''));
+            
+            const orderItems = [];
+            menuItems.forEach(item => {
+                const quantity = parseInt(item.querySelector('.quantity-display').textContent);
+                if (quantity > 0) {
+                    orderItems.push({
+                        name: item.dataset.name,
+                        quantity: quantity,
+                        subtotal: parseFloat(item.dataset.price) * quantity
+                    });
+                }
+            });
+
+            if (orderItems.length === 0) {
+                // Using a custom modal since window.alert() is not allowed.
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4';
+                modal.innerHTML = `
+                    <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl card-bg">
+                        <h3 class="text-3xl font-extrabold text-gray-900 mb-2">Oops!</h3>
+                        <p class="text-lg text-gray-700 font-semibold mb-4">Please add at least one item to your order.</p>
+                        <button class="mt-6 bg-amber-600 text-white font-bold py-2 px-6 rounded-full hover:bg-amber-700 transition-colors duration-300" onclick="this.parentElement.parentElement.remove()">OK</button>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+                return;
+            }
+
+            const orderData = {
+                customerName: customerName,
+                items: orderItems,
+                subtotal: subtotal,
+                gst: gst,
+                totalBill: total,
+                timestamp: new Date().toISOString()
+            };
+            saveOrderToDatabase(orderData);
+
+            finalBillMessage.textContent = `Your total bill is ₹${total.toFixed(2)}.`;
+            modalNameText.textContent = `Hello, ${customerName}!`;
+            
+            modalOrderList.innerHTML = '';
+            orderItems.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} (x${item.quantity})`;
+                modalOrderList.appendChild(listItem);
+            });
+
+            thankYouModal.style.display = 'flex';
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            thankYouModal.style.display = 'none';
+        });
+
+        // Add event listeners for the navigation buttons
+        viewMenuBtn.addEventListener('click', () => toggleView('menu-section'));
+        viewDashboardBtn.addEventListener('click', () => {
+            toggleView('dashboard-section');
+            getOrders(); // Fetch and display orders when the dashboard is opened
+        });
+        
+        calculateTotal();
     </script>
 </body>
 </html>
