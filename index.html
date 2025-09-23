@@ -260,7 +260,7 @@
         const dashboardSection = document.getElementById('dashboard-section');
         const viewMenuBtn = document.getElementById('view-menu-btn');
         const viewDashboardBtn = document.getElementById('view-dashboard-btn');
-        const menuItems = document.querySelectorAll('#menu-items > div');
+        const menuItemsContainer = document.getElementById('menu-items'); // Use the parent container
         const subtotalSpan = document.getElementById('subtotal');
         const gstAmountSpan = document.getElementById('gst-amount');
         const totalBillSpan = document.getElementById('total-bill');
@@ -416,6 +416,8 @@
         const updateOrderSummary = () => {
             orderSummaryList.innerHTML = '';
             let hasItems = false;
+            // Get all menu items again to ensure a fresh list
+            const menuItems = document.querySelectorAll('#menu-items > div'); 
             menuItems.forEach(item => {
                 const quantity = parseInt(item.querySelector('.quantity-display').textContent);
                 if (quantity > 0) {
@@ -439,6 +441,8 @@
 
         const calculateTotal = () => {
             let subtotal = 0;
+            // Get all menu items again to ensure a fresh list
+            const menuItems = document.querySelectorAll('#menu-items > div');
             menuItems.forEach(item => {
                 const price = parseFloat(item.dataset.price);
                 const quantity = parseInt(item.querySelector('.quantity-display').textContent);
@@ -453,27 +457,25 @@
             
             updateOrderSummary();
         };
-
-        menuItems.forEach(item => {
-            const quantityDisplay = item.querySelector('.quantity-display');
-            const decreaseBtn = item.querySelector('[data-action="decrease"]');
-            const increaseBtn = item.querySelector('[data-action="increase"]');
-
-            decreaseBtn.addEventListener('click', () => {
+        
+        // Use event delegation for the quantity buttons
+        menuItemsContainer.addEventListener('click', (event) => {
+            const target = event.target;
+            // Check if the clicked element is a quantity button
+            if (target.classList.contains('quantity-btn')) {
+                const menuItem = target.closest('[data-price]');
+                const quantityDisplay = menuItem.querySelector('.quantity-display');
                 let quantity = parseInt(quantityDisplay.textContent);
-                if (quantity > 0) {
+                
+                if (target.dataset.action === 'decrease' && quantity > 0) {
                     quantity--;
-                    quantityDisplay.textContent = quantity;
-                    calculateTotal();
+                } else if (target.dataset.action === 'increase') {
+                    quantity++;
                 }
-            });
 
-            increaseBtn.addEventListener('click', () => {
-                let quantity = parseInt(quantityDisplay.textContent);
-                quantity++;
                 quantityDisplay.textContent = quantity;
                 calculateTotal();
-            });
+            }
         });
 
         placeOrderBtn.addEventListener('click', () => {
@@ -483,6 +485,7 @@
             const total = parseFloat(totalBillSpan.textContent.replace('₹', ''));
             
             const orderItems = [];
+            const menuItems = document.querySelectorAll('#menu-items > div');
             menuItems.forEach(item => {
                 const quantity = parseInt(item.querySelector('.quantity-display').textContent);
                 if (quantity > 0) {
@@ -547,3 +550,4 @@
     </script>
 </body>
 </html>
+
