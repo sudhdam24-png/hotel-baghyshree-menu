@@ -260,7 +260,7 @@
         const dashboardSection = document.getElementById('dashboard-section');
         const viewMenuBtn = document.getElementById('view-menu-btn');
         const viewDashboardBtn = document.getElementById('view-dashboard-btn');
-        const menuItemsContainer = document.getElementById('menu-items'); // Use the parent container
+        const menuItemsContainer = document.getElementById('menu-items'); 
         const subtotalSpan = document.getElementById('subtotal');
         const gstAmountSpan = document.getElementById('gst-amount');
         const totalBillSpan = document.getElementById('total-bill');
@@ -416,7 +416,6 @@
         const updateOrderSummary = () => {
             orderSummaryList.innerHTML = '';
             let hasItems = false;
-            // Get all menu items again to ensure a fresh list
             const menuItems = document.querySelectorAll('#menu-items > div'); 
             menuItems.forEach(item => {
                 const quantity = parseInt(item.querySelector('.quantity-display').textContent);
@@ -441,7 +440,6 @@
 
         const calculateTotal = () => {
             let subtotal = 0;
-            // Get all menu items again to ensure a fresh list
             const menuItems = document.querySelectorAll('#menu-items > div');
             menuItems.forEach(item => {
                 const price = parseFloat(item.dataset.price);
@@ -458,12 +456,13 @@
             updateOrderSummary();
         };
         
-        // Use event delegation for the quantity buttons
+        // Event delegation for the quantity buttons
         menuItemsContainer.addEventListener('click', (event) => {
             const target = event.target;
-            // Check if the clicked element is a quantity button
             if (target.classList.contains('quantity-btn')) {
                 const menuItem = target.closest('[data-price]');
+                if (!menuItem) return; // Guard clause
+                
                 const quantityDisplay = menuItem.querySelector('.quantity-display');
                 let quantity = parseInt(quantityDisplay.textContent);
                 
@@ -484,8 +483,8 @@
             const gst = parseFloat(gstAmountSpan.textContent.replace('₹', ''));
             const total = parseFloat(totalBillSpan.textContent.replace('₹', ''));
             
-            const orderItems = [];
             const menuItems = document.querySelectorAll('#menu-items > div');
+            const orderItems = [];
             menuItems.forEach(item => {
                 const quantity = parseInt(item.querySelector('.quantity-display').textContent);
                 if (quantity > 0) {
