@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Baghyshree - Menu & Dashboard</title>
+    <title>Hotel Baghyshree - Menu</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -22,29 +22,25 @@
         .card-bg {
             background-image: linear-gradient(135deg, #fef2f2 0%, #fffbeb 100%);
         }
-        .order-card-bg {
-            background-image: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-        }
     </style>
 </head>
 <body class="bg-amber-50">
     <div class="min-h-screen flex flex-col items-center">
-        <!-- Header Section with Navigation -->
+        <!-- Header Section -->
         <header class="w-full text-center py-8 bg-amber-700 text-white shadow-xl px-4 md:px-8">
-            <nav class="flex justify-between items-center max-w-7xl mx-auto flex-wrap">
+            <nav class="flex justify-center items-center max-w-7xl mx-auto">
                 <h1 class="text-4xl md:text-5xl font-extrabold stylish-heading tracking-tight mb-4 md:mb-0">Hotel Baghyshree</h1>
-                <div class="flex items-center space-x-4">
-                    <button id="view-menu-btn" class="bg-amber-800 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-amber-900 transition-colors duration-300">
-                        View Menu
-                    </button>
-                    <button id="view-dashboard-btn" class="bg-amber-800 text-white font-semibold py-2 px-6 rounded-full shadow-lg hover:bg-amber-900 transition-colors duration-300">
-                        View Live Orders
-                    </button>
-                </div>
             </nav>
         </header>
 
         <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-20">
+
+            <!-- View Profit Button -->
+            <div class="text-center mb-8">
+                <button id="view-profit-btn" class="bg-slate-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-slate-800 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-slate-500 text-lg">
+                    View Total Profit
+                </button>
+            </div>
 
             <!-- Menu Section -->
             <section id="menu-section" class="w-full">
@@ -154,7 +150,6 @@
                                 <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
                             </div>
                         </div>
-
                     </div>
                     
                     <!-- Customer Name and Order Summary Section -->
@@ -189,33 +184,6 @@
                 </div>
             </section>
             
-            <!-- Dashboard Section -->
-            <section id="dashboard-section" class="w-full hidden">
-                <div class="bg-white p-6 md:p-12 rounded-3xl shadow-xl order-card-bg">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Live Orders Dashboard</h2>
-                    <div class="w-full text-center p-6 bg-yellow-100 rounded-xl shadow-inner mb-8">
-                        <h3 class="text-2xl font-bold text-gray-700 mb-2">Total Profit</h3>
-                        <p id="total-profit-display" class="text-4xl font-extrabold text-green-700">₹0</p>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0">
-                        <!-- Pending Orders -->
-                        <div class="w-full md:w-1/2">
-                            <h3 class="text-2xl font-bold text-gray-700 mb-4 text-center border-b-2 border-amber-500 pb-2">Pending Orders</h3>
-                            <div id="pending-orders-container" class="space-y-6">
-                                <p id="no-pending-orders" class="text-center text-gray-500">No pending orders.</p>
-                            </div>
-                        </div>
-                        <!-- Completed Orders -->
-                        <div class="w-full md:w-1/2">
-                            <h3 class="text-2xl font-bold text-gray-700 mb-4 text-center border-b-2 border-green-500 pb-2">Completed Orders</h3>
-                            <div id="completed-orders-container" class="space-y-6">
-                                <p id="no-completed-orders" class="text-center text-gray-500">No completed orders yet.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Modal for "Thank You" message -->
             <div id="thank-you-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4" style="display:none;">
                 <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl card-bg">
@@ -233,6 +201,16 @@
                     <p id="final-bill-message" class="text-lg text-gray-700 font-semibold mt-4">Your total bill is ₹0.</p>
                     <p class="text-gray-600 mt-2">Our waiter will be with you shortly to confirm your order.</p>
                     <button id="close-modal-btn" class="mt-6 bg-amber-600 text-white font-bold py-2 px-6 rounded-full hover:bg-amber-700 transition-colors duration-300">Close</button>
+                </div>
+            </div>
+
+            <!-- Modal for Total Profit Display -->
+            <div id="profit-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4" style="display:none;">
+                <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl card-bg">
+                    <h3 class="text-3xl font-extrabold text-gray-900 mb-4">Total Profit</h3>
+                    <p id="profit-display" class="text-5xl font-extrabold text-green-700">₹0</p>
+                    <p class="text-gray-600 mt-2">This is the sum of all subtotals from every order.</p>
+                    <button id="close-profit-modal-btn" class="mt-6 bg-slate-600 text-white font-bold py-2 px-6 rounded-full hover:bg-slate-700 transition-colors duration-300">Close</button>
                 </div>
             </div>
             
@@ -257,13 +235,10 @@
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
 
         let userId = '';
+        let totalProfit = 0;
         const publicCollectionPath = `artifacts/${appId}/public/data/`;
 
         // UI element references
-        const menuSection = document.getElementById('menu-section');
-        const dashboardSection = document.getElementById('dashboard-section');
-        const viewMenuBtn = document.getElementById('view-menu-btn');
-        const viewDashboardBtn = document.getElementById('view-dashboard-btn');
         const menuItemsContainer = document.getElementById('menu-items'); 
         const subtotalSpan = document.getElementById('subtotal');
         const gstAmountSpan = document.getElementById('gst-amount');
@@ -277,116 +252,23 @@
         const orderSummaryList = document.getElementById('order-summary-list');
         const modalNameText = document.getElementById('modal-name-text');
         const modalOrderList = document.getElementById('modal-order-list');
-        const pendingOrdersContainer = document.getElementById('pending-orders-container');
-        const completedOrdersContainer = document.getElementById('completed-orders-container');
-        const noPendingOrders = document.getElementById('no-pending-orders');
-        const noCompletedOrders = document.getElementById('no-completed-orders');
-        const totalProfitDisplay = document.getElementById('total-profit-display');
+        const viewProfitBtn = document.getElementById('view-profit-btn');
+        const profitModal = document.getElementById('profit-modal');
+        const profitDisplay = document.getElementById('profit-display');
+        const closeProfitModalBtn = document.getElementById('close-profit-modal-btn');
 
         const GST_RATE = 0.05; // 5% GST
 
-        // Function to toggle between menu and dashboard views
-        const toggleView = (viewId) => {
-            menuSection.classList.add('hidden');
-            dashboardSection.classList.add('hidden');
-            document.getElementById(viewId).classList.remove('hidden');
-        };
-
-        // Function to render orders on the dashboard and calculate total profit
-        const renderOrders = (orders) => {
-            const pendingOrders = orders.filter(order => order.status === 'pending');
-            const completedOrders = orders.filter(order => order.status === 'completed');
-            
-            // Calculate total profit based on the subtotal of all orders
-            let totalProfit = 0;
-            orders.forEach(order => {
-                totalProfit += order.subtotal;
-            });
-            totalProfitDisplay.textContent = `₹${totalProfit.toFixed(2)}`;
-
-            // Render pending orders
-            pendingOrdersContainer.innerHTML = '';
-            if (pendingOrders.length === 0) {
-                pendingOrdersContainer.appendChild(noPendingOrders);
-                noPendingOrders.classList.remove('hidden');
-            } else {
-                noPendingOrders.classList.add('hidden');
-                pendingOrders.forEach(order => {
-                    const orderCard = document.createElement('div');
-                    orderCard.className = 'bg-white p-6 rounded-2xl shadow-lg border border-amber-300';
-                    const orderDate = new Date(order.timestamp).toLocaleString();
-                    const itemsHtml = order.items.map(item => `
-                        <li class="flex justify-between items-center text-gray-700 text-sm">
-                            <span class="font-semibold">${item.name}</span>
-                            <span class="text-gray-500">x${item.quantity}</span>
-                        </li>
-                    `).join('');
-                    orderCard.innerHTML = `
-                        <h4 class="text-xl font-bold mb-2 text-gray-800">${order.customerName}</h4>
-                        <p class="text-sm text-gray-500 mb-3">Order placed at ${orderDate}</p>
-                        <ul class="list-disc list-inside space-y-1 mb-4">
-                            ${itemsHtml}
-                        </ul>
-                        <p class="text-lg font-bold text-gray-800">Total: ₹${order.totalBill.toFixed(2)}</p>
-                        <button class="mt-4 w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-full hover:bg-green-600 transition-colors duration-300" data-order-id="${order.id}">
-                            Mark as Completed
-                        </button>
-                    `;
-                    pendingOrdersContainer.appendChild(orderCard);
-                    orderCard.querySelector('button').addEventListener('click', () => updateOrderStatus(order.id, 'completed'));
-                });
-            }
-
-            // Render completed orders
-            completedOrdersContainer.innerHTML = '';
-            if (completedOrders.length === 0) {
-                completedOrdersContainer.appendChild(noCompletedOrders);
-                noCompletedOrders.classList.remove('hidden');
-            } else {
-                noCompletedOrders.classList.add('hidden');
-                completedOrders.forEach(order => {
-                    const orderCard = document.createElement('div');
-                    orderCard.className = 'bg-white p-6 rounded-2xl shadow-lg border border-green-300';
-                    const orderDate = new Date(order.timestamp).toLocaleString();
-                    const itemsHtml = order.items.map(item => `
-                        <li class="flex justify-between items-center text-gray-700 text-sm">
-                            <span class="font-semibold">${item.name}</span>
-                            <span class="text-gray-500">x${item.quantity}</span>
-                        </li>
-                    `).join('');
-                    orderCard.innerHTML = `
-                        <h4 class="text-xl font-bold mb-2 text-gray-800">${order.customerName}</h4>
-                        <p class="text-sm text-gray-500 mb-3">Order completed at ${orderDate}</p>
-                        <ul class="list-disc list-inside space-y-1 mb-4">
-                            ${itemsHtml}
-                        </ul>
-                        <p class="text-lg font-bold text-gray-800">Total: ₹${order.totalBill.toFixed(2)}</p>
-                    `;
-                    completedOrdersContainer.appendChild(orderCard);
-                });
-            }
-        };
-
-        // Function to update order status in Firestore
-        const updateOrderStatus = async (orderId, newStatus) => {
-            const orderRef = doc(db, `${publicCollectionPath}orders`, orderId);
-            try {
-                await setDoc(orderRef, { status: newStatus }, { merge: true });
-                console.log(`Order ${orderId} status updated to ${newStatus}.`);
-            } catch (e) {
-                console.error("Error updating document: ", e);
-            }
-        };
-
-        // Listen for real-time order updates
-        const getOrders = () => {
+        // Function to listen for real-time order updates and calculate total profit
+        const getAndDisplayProfit = () => {
             const q = query(collection(db, `${publicCollectionPath}orders`));
             onSnapshot(q, (snapshot) => {
-                const orders = [];
+                let currentTotal = 0;
                 snapshot.forEach(doc => {
-                    orders.push({ id: doc.id, ...doc.data() });
+                    const order = doc.data();
+                    currentTotal += order.subtotal;
                 });
-                renderOrders(orders);
+                totalProfit = currentTotal; // Store the profit
             });
         };
 
@@ -395,6 +277,7 @@
             if (user) {
                 userId = user.uid;
                 console.log("Authenticated as user:", userId);
+                getAndDisplayProfit();
             } else {
                 console.log("No user signed in. Signing in anonymously...");
                 try {
@@ -409,6 +292,7 @@
             }
         });
         
+        // Function to save the order to the database
         const saveOrderToDatabase = async (orderData) => {
             if (!userId) {
                 console.error("User not authenticated. Cannot save order.");
@@ -417,14 +301,14 @@
             try {
                 const ordersCollectionRef = collection(db, `${publicCollectionPath}orders`);
                 const newOrderRef = doc(ordersCollectionRef);
-                const orderWithStatus = { ...orderData, status: 'pending' };
-                await setDoc(newOrderRef, orderWithStatus);
+                await setDoc(newOrderRef, orderData);
                 console.log("Order saved to Firestore successfully!");
             } catch (e) {
                 console.error("Error adding document: ", e);
             }
         };
 
+        // Function to update the order summary section
         const updateOrderSummary = () => {
             orderSummaryList.innerHTML = '';
             let hasItems = false;
@@ -446,10 +330,10 @@
                     orderSummaryList.appendChild(listItem);
                 }
             });
-
             orderSummaryContainer.style.display = hasItems ? 'block' : 'none';
         };
 
+        // Function to calculate the total bill
         const calculateTotal = () => {
             let subtotal = 0;
             const menuItems = document.querySelectorAll('#menu-items > div');
@@ -489,6 +373,7 @@
             }
         });
 
+        // Event listener for the "Place Order" button
         placeOrderBtn.addEventListener('click', () => {
             const customerName = customerNameInput.value.trim() || "Anonymous Customer";
             const subtotal = parseFloat(subtotalSpan.textContent.replace('₹', ''));
@@ -550,14 +435,18 @@
             thankYouModal.style.display = 'none';
         });
 
-        // Add event listeners for the navigation buttons
-        viewMenuBtn.addEventListener('click', () => toggleView('menu-section'));
-        viewDashboardBtn.addEventListener('click', () => {
-            toggleView('dashboard-section');
-            getOrders(); // Fetch and display orders when the dashboard is opened
+        // Event listeners for the profit modal
+        viewProfitBtn.addEventListener('click', () => {
+            profitDisplay.textContent = `₹${totalProfit.toFixed(2)}`;
+            profitModal.style.display = 'flex';
+        });
+
+        closeProfitModalBtn.addEventListener('click', () => {
+            profitModal.style.display = 'none';
         });
         
         calculateTotal();
     </script>
 </body>
 </html>
+
