@@ -1,201 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Baghyshree - Menu</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f3f0;
-        }
-        .stylish-heading {
-            font-family: 'Playfair Display', serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .card-bg {
-            background-image: linear-gradient(135deg, #fef2f2 0%, #fffbeb 100%);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Baghyshree - Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3f0;
+        }
+        .stylish-heading {
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-bg {
+            background-image: linear-gradient(135deg, #fef2f2 0%, #fffbeb 100%);
+        }
+    </style>
 </head>
 <body class="bg-amber-50">
-    <div class="min-h-screen flex flex-col items-center">
-                <header class="w-full text-center py-8 bg-amber-700 text-white shadow-xl">
-            <h1 class="text-4xl md:text-6xl font-extrabold stylish-heading tracking-tight">Hotel Baghyshree</h1>
-            <p class="mt-2 text-xl md:text-2xl font-light">Our Digital Menu</p>
-        </header>
+    <div class="min-h-screen flex flex-col items-center">
+        <header class="w-full text-center py-8 bg-amber-700 text-white shadow-xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold stylish-heading tracking-tight">Hotel Baghyshree</h1>
+            <p class="mt-2 text-xl md:text-2xl font-light">Our Digital Menu</p>
+        </header>
 
-        <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-20">
-            <div class="bg-white p-6 md:p-12 rounded-3xl shadow-xl card-bg">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Menu Items</h2>
-                
-                <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="290">
-                        <img src="https://placehold.co/400x300/e0e0e0/555555?text=Chicken+Thali" alt="Chicken Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Chicken Thali</h3>
-                        <p class="text-gray-600">A complete meal with chicken curry, rice, and bread.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹290</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
-                    
-                                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="350">
-                        <img src="https://placehold.co/400x300/fcc2b4/824317?text=Mutton+Thali" alt="Mutton Thali" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Mutton Thali</h3>
-                        <p class="text-gray-600">Tender mutton curry and accompaniments.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹350</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
-                    
-                                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="280">
-                        <img src="https://placehold.co/400x300/c7a5f5/582d91?text=Paneer+Tikka+Masala" alt="Paneer Tikka Masala" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Paneer Tikka Masala</h3>
-                        <p class="text-gray-600">Soft paneer cubes in a rich, creamy tomato gravy.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹280</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
+        <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-20">
+            <div class="bg-white p-6 md:p-12 rounded-3xl shadow-xl card-bg">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Menu Items</h2>
+                
+                <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="290" data-name="Chicken Thali">
+                        <img src="https://placehold.co/400x300/e0e0e0/555555?text=Chicken+Thali" alt="Chicken Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                        <h3 class="text-2xl font-bold text-gray-900">Chicken Thali</h3>
+                        <p class="text-gray-600">A complete meal with chicken curry, rice, and bread.</p>
+                        <p class="text-xl text-gray-700 font-semibold">₹290</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="350" data-name="Mutton Thali">
+                        <img src="https://placehold.co/400x300/fcc2b4/824317?text=Mutton+Thali" alt="Mutton Thali" class="w-full h-40 object-cover rounded-xl shadow">
+                        <h3 class="text-2xl font-bold text-gray-900">Mutton Thali</h3>
+                        <p class="text-gray-600">Tender mutton curry and accompaniments.</p>
+                        <p class="text-xl text-gray-700 font-semibold">₹350</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="280" data-name="Paneer Tikka Masala">
+                        <img src="https://placehold.co/400x300/c7a5f5/582d91?text=Paneer+Tikka+Masala" alt="Paneer Tikka Masala" class="w-full h-40 object-cover rounded-xl shadow">
+                        <h3 class="text-2xl font-bold text-gray-900">Paneer Tikka Masala</h3>
+                        <p class="text-gray-600">Soft paneer cubes in a rich, creamy tomato gravy.</p>
+                        <p class="text-xl text-gray-700 font-semibold">₹280</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                        </div>
+                    </div>
 
-                                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="220">
-                        <img src="https://placehold.co/400x300/b0e5e0/215663?text=Vegetable+Biryani" alt="Vegetable Biryani" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Vegetable Biryani</h3>
-                        <p class="text-gray-600">Fragrant basmati rice cooked with fresh vegetables and spices.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹220</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
+                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="220" data-name="Vegetable Biryani">
+                        <img src="https://placehold.co/400x300/b0e5e0/215663?text=Vegetable+Biryani" alt="Vegetable Biryani" class="w-full h-40 object-cover rounded-xl shadow">
+                        <h3 class="text-2xl font-bold text-gray-900">Vegetable Biryani</h3>
+                        <p class="text-gray-600">Fragrant basmati rice cooked with fresh vegetables and spices.</p>
+                        <p class="text-xl text-gray-700 font-semibold">₹220</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                        </div>
+                    </div>
 
-                                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="180">
-                        <img src="https://placehold.co/400x300/b2a3a5/3d1c1a?text=Dal+Makhani" alt="Dal Makhani" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Dal Makhani</h3>
-                        <p class="text-gray-600">Black lentils slow-cooked with cream and butter.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹180</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
+                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="180" data-name="Dal Makhani">
+                        <img src="https://placehold.co/400x300/b2a3a5/3d1c1a?text=Dal+Makhani" alt="Dal Makhani" class="w-full h-40 object-cover rounded-xl shadow">
+                        <h3 class="text-2xl font-bold text-gray-900">Dal Makhani</h3>
+                        <p class="text-gray-600">Black lentils slow-cooked with cream and butter.</p>
+                        <p class="text-xl text-gray-700 font-semibold">₹180</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                        </div>
+                    </div>
 
-                                        <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="40">
-                        <img src="https://placehold.co/400x300/a3cc9a/315a28?text=Garlic+Naan" alt="Garlic Naan" class="w-full h-40 object-cover rounded-xl shadow">
-                        <h3 class="text-2xl font-bold text-gray-900">Garlic Naan</h3>
-                        <p class="text-gray-600">Soft naan bread with finely chopped garlic.</p>
-                        <p class="text-xl text-gray-700 font-semibold">₹40</p>
-                        <div class="flex items-center space-x-4">
-                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
-                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
-                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
-                        </div>
-                    </div>
-                </div>
+                    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center space-y-4" data-price="40" data-name="Garlic Naan">
+                        <img src="https://placehold.co/400x300/a3cc9a/315a28?text=Garlic+Naan" alt="Garlic Naan" class="w-full h-40 object-cover rounded-xl shadow">
+                        <h3 class="text-2xl font-bold text-gray-900">Garlic Naan</h3>
+                        <p class="text-gray-600">Soft naan bread with finely chopped garlic.</p>
+                        <p class="text-xl text-gray-700 font-semibold">₹40</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="quantity-btn bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-red-600 transition-colors duration-300" data-action="decrease">-</button>
+                            <span class="quantity-display text-2xl font-mono w-8 text-center">0</span>
+                            <button class="quantity-btn bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-green-600 transition-colors duration-300" data-action="increase">+</button>
+                        </div>
+                    </div>
+                </div>
 
-                                <div class="mt-8 mb-8 text-center">
-                    <label for="customer-name" class="text-xl font-semibold text-gray-700">Name for this Order:</label>
-                    <input type="text" id="customer-name" placeholder="Enter your name" class="mt-2 w-full max-w-sm px-4 py-2 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500 transition-colors duration-300 text-center">
-                </div>
-                
-                <div class="mt-12 text-center">
-                    <h3 class="text-3xl font-extrabold text-gray-800">Total Bill: <span id="total-bill" class="text-amber-700">₹0</span></h3>
-                </div>
+                <div class="mt-8 mb-8 text-center">
+                    <label for="customer-name" class="text-xl font-semibold text-gray-700">Name for this Order:</label>
+                    <input type="text" id="customer-name" placeholder="Enter your name" class="mt-2 w-full max-w-sm px-4 py-2 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500 transition-colors duration-300 text-center">
+                </div>
+                
+                <div class="mt-12 text-center">
+                    <h3 class="text-3xl font-extrabold text-gray-800">Total Bill: <span id="total-bill" class="text-amber-700">₹0</span></h3>
+                </div>
 
-                <div class="flex justify-center mt-8">
-                    <button id="place-order-btn" class="bg-green-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-green-500 text-xl">
-                        Place Order
-                    </button>
-                </div>
-            </div>
+                <div class="flex justify-center mt-8">
+                    <button id="place-order-btn" class="bg-green-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:bg-green-700 transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-green-500 text-xl">
+                        Place Order
+                    </button>
+                </div>
+            </div>
 
-                        <div id="thank-you-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4" style="display:none;">
-                <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl card-bg">
-                    <div class="text-green-500 mb-4">
-                        <svg class="mx-auto h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-3xl font-extrabold text-gray-900 mb-2">Thank You!</h3>
-                    <p id="final-bill-message" class="text-lg text-gray-700 font-semibold mb-4">Your total bill is ₹0.</p>
-                    <p class="text-gray-600">Our waiter will be with you shortly to confirm your order.</p>
-                    <button id="close-modal-btn" class="mt-6 bg-amber-600 text-white font-bold py-2 px-6 rounded-full hover:bg-amber-700 transition-colors duration-300">Close</button>
-                </div>
-            </div>
-        </main>
-        
-                <footer class="w-full text-center py-6 bg-amber-800 text-white mt-12">
-            <p class="text-sm">&copy; 2025 Hotel Baghyshree. All rights reserved.</p>
-        </footer>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuItems = document.querySelectorAll('#menu-items > div');
-            const totalBillSpan = document.getElementById('total-bill');
-            const placeOrderBtn = document.getElementById('place-order-btn');
-            const thankYouModal = document.getElementById('thank-you-modal');
-            const finalBillMessage = document.getElementById('final-bill-message');
-            const closeModalBtn = document.getElementById('close-modal-btn');
-            const customerNameInput = document.getElementById('customer-name');
+            <div class="mt-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Live Orders Received</h2>
+                <div id="live-orders-container" class="space-y-6">
+                    <p id="no-orders-message" class="text-center text-gray-500 italic">No orders received yet.</p>
+                </div>
+            </div>
 
-            const calculateTotal = () => {
-                let total = 0;
-                menuItems.forEach(item => {
-                    const price = parseFloat(item.dataset.price);
-                    const quantity = parseInt(item.querySelector('.quantity-display').textContent);
-                    total += price * quantity;
-                });
-                totalBillSpan.textContent = `₹${total}`;
-            };
+            <div id="thank-you-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4" style="display:none;">
+                <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl card-bg">
+                    <div class="text-green-500 mb-4">
+                        <svg class="mx-auto h-16 w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-gray-900 mb-2">Thank You!</h3>
+                    <p id="final-bill-message" class="text-lg text-gray-700 font-semibold mb-4">Your total bill is ₹0.</p>
+                    <p class="text-gray-600">Our waiter will be with you shortly to confirm your order.</p>
+                    <button id="close-modal-btn" class="mt-6 bg-amber-600 text-white font-bold py-2 px-6 rounded-full hover:bg-amber-700 transition-colors duration-300">Close</button>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="w-full text-center py-6 bg-amber-800 text-white mt-12">
+            <p class="text-sm">&copy; 2025 Hotel Baghyshree. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = document.querySelectorAll('#menu-items > div');
+            const totalBillSpan = document.getElementById('total-bill');
+            const placeOrderBtn = document.getElementById('place-order-btn');
+            const thankYouModal = document.getElementById('thank-you-modal');
+            const finalBillMessage = document.getElementById('final-bill-message');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const customerNameInput = document.getElementById('customer-name');
+            const liveOrdersContainer = document.getElementById('live-orders-container');
+            const noOrdersMessage = document.getElementById('no-orders-message');
 
-            menuItems.forEach(item => {
-                const quantityDisplay = item.querySelector('.quantity-display');
-                const decreaseBtn = item.querySelector('[data-action="decrease"]');
-                const increaseBtn = item.querySelector('[data-action="increase"]');
+            const liveOrders = [];
 
-                decreaseBtn.addEventListener('click', () => {
-                    let quantity = parseInt(quantityDisplay.textContent);
-                    if (quantity > 0) {
-                        quantity--;
-                        quantityDisplay.textContent = quantity;
-                        calculateTotal();
-                    }
-                });
+            const calculateTotal = () => {
+                let total = 0;
+                menuItems.forEach(item => {
+                    const price = parseFloat(item.dataset.price);
+                    const quantity = parseInt(item.querySelector('.quantity-display').textContent);
+                    total += price * quantity;
+                });
+                totalBillSpan.textContent = `₹${total}`;
+            };
 
-                increaseBtn.addEventListener('click', () => {
-                    let quantity = parseInt(quantityDisplay.textContent);
-                    quantity++;
-                    quantityDisplay.textContent = quantity;
-                    calculateTotal();
-                });
-            });
+            const renderLiveOrders = () => {
+                liveOrdersContainer.innerHTML = '';
+                if (liveOrders.length === 0) {
+                    liveOrdersContainer.appendChild(noOrdersMessage);
+                } else {
+                    liveOrders.forEach((order, index) => {
+                        const orderCard = document.createElement('div');
+                        orderCard.className = 'bg-white rounded-2xl shadow-md p-6 mb-4';
+                        
+                        let orderItemsHtml = '';
+                        order.items.forEach(item => {
+                            orderItemsHtml += `<li class="text-gray-600"><span class="font-semibold">${item.quantity}x</span> ${item.name} - ₹${item.price}</li>`;
+                        });
 
-            placeOrderBtn.addEventListener('click', () => {
-                const total = totalBillSpan.textContent;
-                const customerName = customerNameInput.value.trim() || 'Valued Customer';
-                finalBillMessage.innerHTML = `Thank you, <span class="font-bold">${customerName}</span>! Your total bill is ${total}.`;
-                thankYouModal.style.display = 'flex';
-            });
+                        orderCard.innerHTML = `
+                            <h4 class="text-xl font-bold text-gray-900">Order #${index + 1} from ${order.customerName}</h4>
+                            <p class="text-lg font-semibold text-gray-700 mt-2 mb-4">Total: ${order.total}</p>
+                            <h5 class="font-bold text-gray-800">Items:</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                ${orderItemsHtml}
+                            </ul>
+                        `;
+                        liveOrdersContainer.appendChild(orderCard);
+                    });
+                }
+            };
 
-            closeModalBtn.addEventListener('click', () => {
-                thankYouModal.style.display = 'none';
-            });
-        });
-    </script>
+            menuItems.forEach(item => {
+                const quantityDisplay = item.querySelector('.quantity-display');
+                const decreaseBtn = item.querySelector('[data-action="decrease"]');
+                const increaseBtn = item.querySelector('[data-action="increase"]');
+
+                decreaseBtn.addEventListener('click', () => {
+                    let quantity = parseInt(quantityDisplay.textContent);
+                    if (quantity > 0) {
+                        quantity--;
+                        quantityDisplay.textContent = quantity;
+                        calculateTotal();
+                    }
+                });
+
+                increaseBtn.addEventListener('click', () => {
+                    let quantity = parseInt(quantityDisplay.textContent);
+                    quantity++;
+                    quantityDisplay.textContent = quantity;
+                    calculateTotal();
+                });
+            });
+
+            placeOrderBtn.addEventListener('click', () => {
+                const total = totalBillSpan.textContent;
+                const customerName = customerNameInput.value.trim() || 'Valued Customer';
+                
+                const orderedItems = [];
+                menuItems.forEach(item => {
+                    const quantity = parseInt(item.querySelector('.quantity-display').textContent);
+                    if (quantity > 0) {
+                        orderedItems.push({
+                            name: item.dataset.name,
+                            price: parseFloat(item.dataset.price),
+                            quantity: quantity
+                        });
+                    }
+                });
+
+                if (orderedItems.length > 0) {
+                    const newOrder = {
+                        customerName: customerName,
+                        total: total,
+                        items: orderedItems
+                    };
+                    liveOrders.push(newOrder);
+                    renderLiveOrders();
+                }
+
+                finalBillMessage.innerHTML = `Thank you, <span class="font-bold">${customerName}</span>! Your total bill is ${total}.`;
+                thankYouModal.style.display = 'flex';
+                
+                // Reset quantities after placing the order
+                menuItems.forEach(item => {
+                    item.querySelector('.quantity-display').textContent = '0';
+                });
+                calculateTotal(); // Recalculate total to reset it to zero
+                customerNameInput.value = ''; // Clear the name input
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                thankYouModal.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
